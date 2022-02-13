@@ -19,13 +19,7 @@ module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
   bucket = "salprds3bucket"
   acl = "private"
-  policy = {
-    {
-      "version" : "2013-10-17"
-
-     }
-  }
-
+ 
   versioning = {
     enabled = false
   }
