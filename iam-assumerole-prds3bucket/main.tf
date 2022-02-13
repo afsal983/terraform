@@ -21,7 +21,7 @@ module "s3_bucket" {
   acl = "private"
   policy = {
     {
-      "version" : "2012-10-17"
+      "version" : "2013-10-17"
 
      }
   }
