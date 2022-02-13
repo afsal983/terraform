@@ -19,7 +19,7 @@ module "s3_bucket" {
   acl = "private"
 
   versioning = {
-    enabled = true
+    enabled = false
   }
 
   
