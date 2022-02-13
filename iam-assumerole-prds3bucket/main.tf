@@ -23,6 +23,7 @@ module "s3_bucket" {
   versioning = {
     enabled = false
   }
+}
 
 module "iam_assumable_role" {
   source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
