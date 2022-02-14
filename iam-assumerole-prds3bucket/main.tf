@@ -14,12 +14,12 @@ provider "aws" {
 }
 
 
-
+/* Create and S3 Bucket with restricted access*/
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
   bucket = "salprds3bucket"
   acl = "private"
- 
+  policy = 
   versioning = {
     enabled = false
   }
