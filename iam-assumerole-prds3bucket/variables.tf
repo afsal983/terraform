@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "bucket_policy" {
 variable "Bucket_policy" {
  
   {
-	"Version": "2012-10-17",
+	"Version": "2012-10-18",
 	"Statement": [
 		{
 			"Sid": "Statement1",
