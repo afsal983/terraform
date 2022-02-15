@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "bucket_policy" {
     ]
 
     resources = [
-      "arn:aws:s3:::${var.s3_bucket_name}",
+      "arn:aws:s3:::${module.s3_bucket.s3_bucket_id}",
     ]
 
     condition {
