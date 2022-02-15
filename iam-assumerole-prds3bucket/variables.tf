@@ -10,20 +10,25 @@ variable "availability_zone_names" {
 
 data "aws_iam_policy_document" "bucket_policy" {
   
-}
-variable "Bucket_policy" {
- 
-  {
-	"Version": "2012-10-18",
-	"Statement": [
-		{
-			"Sid": "Statement1",
-			"Principal": {},
-			"Effect": "Allow",
-			"Action": [],
-			"Resource": []
-		}
-	]
-}
+  statement {
+    actions = [
+      "s3:ListBucket",
+    ]
+
+    resources = [
+      "arn:aws:s3:::${var.s3_bucket_name}",
+    ]
+
+    condition {
+      test     = "StringLike"
+      variable = "s3:prefix"
+
+      values = [
+        "",
+        "home/",
+        "home/&{aws:username}/",
+      ]
+    }
+  }
 
 }
