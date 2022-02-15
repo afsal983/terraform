@@ -20,7 +20,7 @@ module "s3_bucket" {
   bucket = "salprds3bucket"
   acl = "private"
 
-  policy = "${data.aws_iam_policy_document.bucket_policy.json}"
+  
   versioning = {
     enabled = false
   }
