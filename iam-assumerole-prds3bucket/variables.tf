@@ -11,10 +11,7 @@ variable "availability_zone_names" {
 data "aws_iam_policy_document" "bucket_policy" {
   
   statement {
-    principals {
-      type        = "AWS"
-      
-    }
+    
 
     actions = [
       "s3:GetObject",
