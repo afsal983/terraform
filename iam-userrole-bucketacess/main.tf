@@ -19,7 +19,7 @@ provider "aws" {
 /* Create iam user */
 
 module "iam_user" {
-  source  = "../../modules/iam-user"
+  source  = "terraform-aws-iam/modules/iam-user"
   version = "4.13.1"
 
 
