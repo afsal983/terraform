@@ -10,17 +10,39 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region = "ap-south-1"
+  region = var.MyRegion
 }
 
+
+/* Create and S3 Bucket with restricted access*/
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
   bucket = "salprds3bucket"
   acl = "private"
-
+  policy = data.aws_iam_policy_document.bucket_policy.json
+  
   versioning = {
-    enabled = true
+    enabled = false
   }
+}
 
+module "iam_assumable_role" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  version = "~> 4"
+
+  trusted_role_arns = [
+    "arn:aws:iam::326006462036:user/selloud",
+     ]
+
+  create_role = true
+
+  role_name         = "custom"
+  role_requires_mfa = false
+
+  custom_role_policy_arns = [
+    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+
+  ]
+  number_of_custom_role_policy_arns = 1
   
 }
