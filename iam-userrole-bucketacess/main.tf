@@ -19,7 +19,8 @@ provider "aws" {
 /* Create iam user */
 
 module "iam_user" {
-  source  = "github.com/terraform-aws-modules/terraform-aws-iam/tree/master/modules/iam-user"
+  source  = "terraform-aws-modules/iam/aws"
+  version = "4.13.1"
 
 
   create_user = true
