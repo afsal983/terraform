@@ -25,6 +25,7 @@ output "iam_user_iam_access_key_fingerprint" {
 output "iam_user_iam_access_key_secret" {
   description = "iam access key secret"
   value = module.iam_user.iam_access_key_secret
+  sensitive = true
 
 }
 
